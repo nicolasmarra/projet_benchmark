@@ -1,0 +1,41 @@
+services: 
+
+  notebook:
+    build: .
+    container_name: notebook
+    ports: 
+      - "8888:8888"
+    environment:
+      PYTHONBUFFERED: 1
+      PYTHONDONTWRITEBYTECODE: 1
+    volumes:
+      - ./notebooks:/app
+      - ./:/home 
+    depends_on:
+      - postgres
+    
+  postgres: 
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: db_postgre
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: admin
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  
+  couchdb:
+    image: couchdb:latest
+    container_name: couchdb
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: admin
+    ports:
+      - "5984:5984"
+    volumes:
+      - couchdb_data:/opt/couchdb/data
+  
+volumes:
+  postgres_data:
