@@ -6,7 +6,8 @@ FROM python:3.9-slim
 RUN pip install --no-cache-dir \
     jupyter \
     psycopg2-binary \
-    requests 
+    requests \
+    matplotlib
 
 # Créer un répertoire pour les notebooks
 WORKDIR /notebooks
