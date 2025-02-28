@@ -48,7 +48,3 @@ Nous avons comparé les deux SGBD sur plusieurs aspects :
 Nous avons aussi testé CouchDB avec et sans index afin d'évaluer l'impact des index sur les performances. Cependant, la partie sur la **réplication des données** n'a pas été réalisée.  
 
 Tous les résultats et analyses sont documentés dans le notebook.  
-
-## Auteurs 
-
-Nicolas MARRA et Eddine NASRI.
